@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Nicha 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Mali:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffd6e8;--bg2:#e2d4ff;--ink:#5b2a6e;--paper:#fffaf3;--env:#ffb3d1;--env2:#ff8fbd;--accent:#ff5fa2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a1a4d;--bg2:#1d1840;--ink:#4a2160;}}
+:root[data-theme="dark"]{--bg1:#3a1a4d;--bg2:#1d1840;--ink:#4a2160}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{background:linear-gradient(160deg,var(--bg1),var(--bg2));font-family:'Mali','Noto Sans Thai',sans-serif;color:var(--ink);display:flex;align-items:center;justify-content:center;position:relative}
+.fl{position:absolute;font-size:26px;animation:fl 6s ease-in-out infinite;pointer-events:none;opacity:.85}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(8deg)}}
+#intro{display:flex;flex-direction:column;align-items:center;gap:34px;transition:opacity .8s,transform .8s;z-index:2;width:100%}
+#intro.out{opacity:0;transform:scale(.9);pointer-events:none}
+h1{font-family:'Pacifico','Brush Script MT',cursive;font-weight:400;text-align:center;font-size:clamp(34px,10vw,58px);line-height:1.25;color:#fff;text-shadow:0 3px 0 var(--accent),0 8px 24px rgba(255,95,162,.5)}
+h1 span{display:inline-block;opacity:0;transform:translateY(-40px) rotate(-15deg);animation:drop .7s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes drop{to{opacity:1;transform:none}}
+.name{display:block;font-size:1.25em;color:#fff7a8}
+#env{position:relative;width:min(78vw,300px);height:min(52vw,200px);cursor:pointer;opacity:0;animation:pop .8s 2.2s forwards;perspective:800px}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.8)}to{opacity:1;transform:none}}
+.back,.front{position:absolute;inset:0;border-radius:8px}
+.back{background:var(--env2);box-shadow:0 12px 30px rgba(120,40,100,.3)}
+.front{background:linear-gradient(135deg,var(--env) 50%,transparent 50%) left/50% 100% no-repeat,linear-gradient(225deg,var(--env) 50%,transparent 50%) right/50% 100% no-repeat;z-index:3}
+.front::after{content:"💖";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:34px;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:translate(-50%,-50%) scale(1.25)}}
+.flap{position:absolute;left:0;right:0;top:0;height:55%;background:var(--env);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s .0s,z-index 0s .35s;z-index:4;filter:brightness(.95)}
+.sheet{position:absolute;left:8%;right:8%;top:8%;bottom:8%;background:var(--paper);border-radius:6px;z-index:2;transition:transform .9s .6s;display:flex;align-items:center;justify-content:center;font-size:30px}
+#env.open .flap{transform:rotateX(180deg);z-index:1}
+#env.open .sheet{transform:translateY(-70%)}
+#hint{color:#fff;font-size:15px;opacity:.9;animation:beat2 1.6s infinite}
+@keyframes beat2{50%{opacity:.4}}
+#card{position:absolute;z-index:3;width:min(90vw,380px);max-height:88%;overflow:auto;background:var(--paper);border-radius:20px;padding:28px 24px;text-align:center;box-shadow:0 20px 60px rgba(90,20,90,.35);opacity:0;transform:translateY(60px) scale(.7);pointer-events:none;transition:all .9s cubic-bezier(.2,1.3,.4,1);border:3px dashed var(--accent)}
+#card.show{opacity:1;transform:none;pointer-events:auto}
+#card h2{font-family:'Pacifico','Brush Script MT',cursive;font-weight:400;color:var(--accent);font-size:30px;margin-bottom:10px}
+#card p{line-height:1.7;font-size:16px;margin:8px 0}
+#card ul{list-style:none;padding:0;margin:12px 0}
+#card li{background:#ffe4f0;border-radius:14px;padding:8px 12px;margin:7px 0;font-size:15px;color:#5b2a6e;opacity:0;transform:translateX(-20px)}
+#card.show li{animation:slide .6s forwards}
+#card.show li:nth-child(1){animation-delay:.9s}#card.show li:nth-child(2){animation-delay:1.2s}#card.show li:nth-child(3){animation-delay:1.5s}#card.show li:nth-child(4){animation-delay:1.8s}
+@keyframes slide{to{opacity:1;transform:none}}
+.sig{font-weight:600;color:var(--accent);margin-top:14px}
+.cake{font-size:52px;display:inline-block;animation:fl 3s ease-in-out infinite}
+.cf{position:absolute;top:-20px;width:10px;height:14px;z-index:5;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+</style>
+</head>
+<body>
+<div id="stk"></div>
+<div id="intro">
+  <h1 id="t"></h1>
+  <div id="env"><div class="back"></div><div class="sheet">💌</div><div class="front"></div><div class="flap"></div></div>
+  <div id="hint">แตะที่ซองเพื่อเปิด 💌</div>
+</div>
+<div id="card">
+  <div class="cake">🎂</div>
+  <h2>Happy Birthday, Nicha!</h2>
+  <p>สุขสันต์วันเกิดนะณิชา 🎉<br>ขอให้ปีนี้เป็นปีที่เต็มไปด้วยรอยยิ้ม เสียงหัวเราะ และเรื่องดีๆ ที่ทำให้หัวใจพองโต</p>
+  <ul>
+    <li>🌸 สุขภาพแข็งแรง ยิ้มสดใสทุกวัน</li>
+    <li>📚 เรียนเก่ง สอบผ่านฉลุยทุกวิชา</li>
+    <li>🫶 มีเพื่อนดีๆ อยู่ข้างๆ เสมอ</li>
+    <li>🌟 ฝันทุกอย่างเป็นจริงในเร็ววัน</li>
+  </ul>
+  <p class="sig">ด้วยรักและคิดถึง 💖</p>
+</div>
+<script>
+var t=document.getElementById('t');
+var parts=[['Happy',0],['Birthday',.5],['Nicha',1.1]];
+t.innerHTML=parts.map(function(p,i){var cls=i===2?'name':'';var s=p[0].split('').map(function(c,j){return '<span style="animation-delay:'+(p[1]+j*.08)+'s">'+c+'</span>'}).join('');return '<span class="'+cls+'" style="display:block;opacity:1;transform:none;animation:none">'+s+'</span>'}).join('');
+var em=['🎈','⭐','🌸','🦋','🍰','🎀','✨','💖','🧁','🌈','🎁','🐻'];
+var stk=document.getElementById('stk');
+em.forEach(function(e,i){var d=document.createElement('div');d.className='fl';d.textContent=e;d.style.left=(5+(i*29)%88)+'%';d.style.top=(4+(i*37)%88)+'%';d.style.animationDelay=(i*.5)+'s';d.style.fontSize=(22+(i%4)*7)+'px';stk.appendChild(d)});
+function confetti(){var c=['#ff5fa2','#ffd36e','#8fd3ff','#b69cff','#7be0b0'];for(var i=0;i<60;i++){var d=document.createElement('div');d.className='cf';d.style.left=Math.random()*100+'%';d.style.background=c[i%5];d.style.animationDuration=(2.5+Math.random()*2.5)+'s';d.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(d);setTimeout(function(x){x.remove()}.bind(null,d),6500)}}
+var env=document.getElementById('env'),done=false;
+env.addEventListener('click',function(){if(done)return;done=true;env.classList.add('open');document.getElementById('hint').style.visibility='hidden';
+setTimeout(function(){document.getElementById('intro').classList.add('out');document.getElementById('card').classList.add('show');confetti()},1900);
+setTimeout(confetti,4500)});
+</script>
+</body>
+</html>
